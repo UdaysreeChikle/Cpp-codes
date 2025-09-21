@@ -1,0 +1,41 @@
+//6. Find the First Unique Character in a String
+
+#include <iostream>
+#include <string>
+#include <unordered_map>
+char isunique(std::string str)
+{
+    std::unordered_map<char ,int> charcount;
+    for(char ch: str)
+    {
+        charcount[ch]++;
+    }
+    
+    for(char ch: str)
+    {
+        if(charcount[ch] == 1)
+        {
+            return ch;
+        }
+    }    
+    return '\0';
+}
+
+int main()
+{
+    std::string str;
+    std::cout<<"enter string: ";
+
+    std::getline(std::cin, str);
+    
+    char result = isunique(str);
+    if(result!= '\0')
+    {
+        std::cout<<result;
+    } 
+    else
+    {
+        std::cout<<"not found";
+    }
+    return 0;
+}
